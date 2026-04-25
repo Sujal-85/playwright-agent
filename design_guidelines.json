@@ -1,0 +1,116 @@
+{
+  "theme": "Dark",
+  "archetype": "4 (Swiss & High-Contrast / Developer Terminal)",
+  "colors": {
+    "background": "#0d1117",
+    "surface": "#161b22",
+    "surface_darker": "#010409",
+    "border": "#30363d",
+    "border_hover": "#8b949e",
+    "text_primary": "#e6edf3",
+    "text_secondary": "#8b949e",
+    "status": {
+      "success": "#3fb950",
+      "error": "#f85149",
+      "warning": "#d29922",
+      "info": "#58a6ff"
+    },
+    "button": {
+      "primary_bg": "#238636",
+      "primary_hover": "#2ea043",
+      "primary_text": "#ffffff",
+      "danger_bg": "transparent",
+      "danger_hover": "#f85149",
+      "danger_border": "#f85149",
+      "danger_text": "#f85149"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "IBM Plex Sans, sans-serif",
+      "body": "IBM Plex Sans, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "hierarchy": {
+      "h1": "text-2xl sm:text-3xl font-semibold tracking-tight text-[#e6edf3]",
+      "h2": "text-xl font-medium tracking-tight text-[#e6edf3]",
+      "h3": "text-lg font-medium text-[#e6edf3]",
+      "body": "text-sm text-[#8b949e]",
+      "terminal": "text-xs font-mono text-[#e6edf3] leading-relaxed",
+      "overline": "text-xs font-semibold uppercase tracking-[0.2em] text-[#8b949e]"
+    }
+  },
+  "spacing_and_layout": {
+    "container": "h-screen flex flex-col bg-[#0d1117] overflow-hidden",
+    "header": "flex items-center justify-between px-6 py-4 border-b border-[#30363d] bg-[#0d1117] z-50 shrink-0",
+    "main_grid": "flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-hidden",
+    "terminal_panel": "lg:col-span-4 border-r border-[#30363d] bg-[#010409] flex flex-col h-full overflow-hidden relative",
+    "pages_panel": "lg:col-span-8 bg-[#0d1117] flex flex-col h-full overflow-hidden",
+    "pages_grid": "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 p-6 overflow-y-auto content-start",
+    "footer_stats": "flex items-center justify-between px-6 py-2 border-t border-[#30363d] bg-[#161b22] text-xs font-mono shrink-0 text-[#8b949e]"
+  },
+  "components": {
+    "card": {
+      "container": "bg-[#161b22] border border-[#30363d] rounded-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:border-[#8b949e] hover:shadow-[0_8px_24px_rgba(0,0,0,0.5)] flex flex-col group",
+      "header": "p-3 border-b border-[#30363d] flex items-center justify-between bg-[#161b22]/50",
+      "body": "p-0 bg-[#010409] aspect-video relative flex items-center justify-center overflow-hidden",
+      "footer": "p-3 bg-[#161b22] flex flex-col gap-1 text-xs text-[#8b949e]",
+      "overlay": "absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+    },
+    "input": {
+      "base": "bg-[#010409] border border-[#30363d] text-[#e6edf3] rounded-md px-3 py-2 text-sm focus:outline-none focus:border-[#58a6ff] focus:ring-1 focus:ring-[#58a6ff] transition-colors placeholder:text-[#8b949e]"
+    },
+    "button": {
+      "primary": "bg-[#238636] text-white hover:bg-[#2ea043] font-medium rounded-md px-4 py-2 text-sm transition-colors shadow-sm",
+      "danger": "bg-transparent border border-[#f85149] text-[#f85149] hover:bg-[#f85149] hover:text-white font-medium rounded-md px-4 py-2 text-sm transition-colors",
+      "secondary": "bg-[#21262d] border border-[#30363d] text-[#c9d1d9] hover:bg-[#30363d] hover:border-[#8b949e] rounded-md px-4 py-2 text-sm transition-colors"
+    },
+    "terminal_log": {
+      "container": "flex-1 overflow-y-auto p-4 space-y-1 font-mono text-xs",
+      "line": "break-all hover:bg-[#161b22] px-1 -mx-1 rounded py-0.5 transition-colors",
+      "success": "text-[#3fb950]",
+      "error": "text-[#f85149]",
+      "warning": "text-[#d29922]",
+      "info": "text-[#58a6ff]"
+    },
+    "badge": {
+      "base": "px-2 py-0.5 rounded text-[10px] font-mono font-semibold tracking-wider border",
+      "success": "text-[#3fb950] border-[#3fb950]/30 bg-[#3fb950]/10",
+      "error": "text-[#f85149] border-[#f85149]/30 bg-[#f85149]/10",
+      "warning": "text-[#d29922] border-[#d29922]/30 bg-[#d29922]/10"
+    }
+  },
+  "motion": {
+    "hover": "transition-colors duration-200 ease-in-out",
+    "card_entrance": "animate-in fade-in slide-in-from-bottom-4 duration-500",
+    "terminal_new_line": "animate-in fade-in slide-in-from-left-2 duration-200"
+  },
+  "icons_and_assets": {
+    "library": "lucide-react",
+    "instructions": "Use Lucide React for UI elements. Use 'Terminal' for log icon, 'Play' for start, 'Square' for stop, 'Globe' for pages, 'ShieldAlert' for errors. Stroke width strictly 1.5."
+  },
+  "accessibility": {
+    "focus": "focus-visible:ring-2 focus-visible:ring-[#58a6ff] focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d1117]",
+    "aria": "Add aria-live='polite' to the terminal log container. Ensure all buttons have explicit aria-labels if relying purely on icons."
+  },
+  "instructions_to_main_agent": [
+    "Build a single-page React app focusing on a strict 'Control Room' grid layout.",
+    "Do NOT use 'Inter' for fonts. Install '@fontsource/ibm-plex-sans' and '@fontsource/jetbrains-mono'. Use IBM Plex Sans for UI text and JetBrains Mono for logs and stats.",
+    "Implement the UI using pure Tailwind CSS utility classes mirroring the GitHub Dark specifications provided in this JSON.",
+    "The layout must not scroll at the page level. Container is 'h-screen overflow-hidden'. Only the Terminal panel and the Pages grid panel should scroll independently.",
+    "The Terminal panel must automatically scroll to the bottom upon new log entries.",
+    "Implement live mock data feed simulating WebSocket if backend is not yet attached, triggering card and log pop-ins dynamically.",
+    "Apply `data-testid` to all forms, inputs, buttons, and individual log entries for robust QA.",
+    "Images for scraped page cards should be displayed using base64 rendering, fallback to an empty state placeholder if missing."
+  ],
+  "media_urls": {
+    "empty_state_terminal": {
+      "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxtYXRyaXglMjB0ZXJtaW5hbCUyMGNvZGUlMjBkYXJrfGVufDB8fHx8MTc3NzE0MTA2NHww&ixlib=rb-4.1.0&q=85",
+      "description": "Matrix terminal background. Can be used as a low-opacity watermark in the terminal window before crawling starts."
+    },
+    "empty_state_dashboard": {
+      "url": "https://images.unsplash.com/photo-1680992044138-ce4864c2b962?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxzZXJ2ZXIlMjByb29tJTIwZGFyayUyMG5lb258ZW58MHx8fHwxNzc3MTQxMDY0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Dark server room. Can be used as an atmospheric background for the empty state of the Pages Grid."
+    }
+  }
+}
