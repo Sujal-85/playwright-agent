@@ -22,9 +22,9 @@ _xvfb_proc = None
 def ensure_display():
     """Start Xvfb virtual display if DISPLAY is not set."""
     global _xvfb_proc
-    # Set playwright browsers path to pre-installed location
-    if not os.environ.get('PLAYWRIGHT_BROWSERS_PATH'):
-        os.environ['PLAYWRIGHT_BROWSERS_PATH'] = '/pw-browsers'
+    # Ensure playwright finds the pre-installed browser
+    browsers_path = os.environ.get('PLAYWRIGHT_BROWSERS_PATH', '/pw-browsers')
+    os.environ['PLAYWRIGHT_BROWSERS_PATH'] = browsers_path
     if os.environ.get('DISPLAY'):
         return
     # Kill stale Xvfb
