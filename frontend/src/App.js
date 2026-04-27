@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import axios from 'axios';
 import {
   Terminal, Play, Square, Globe, ShieldAlert,
   AlertTriangle, CheckCircle2, Info, ExternalLink, X,
@@ -160,18 +161,13 @@ export default function App() {
     addLog(`Initiating crawl of ${url}…`, 'info');
 
     try {
-      const res = await fetch(`${API}/crawl/start`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          url: url.trim(),
-          username: username || null,
-          password: password || null,
-          max_pages: maxPages,
-          max_depth: maxDepth,
-        }),
+      const { data } = await axios.post(`${API}/crawl/start`, {
+        url: url.trim(),
+        username: username || null,
+        password: password || null,
+        max_pages: maxPages,
+        max_depth: maxDepth,
       });
-      const data = await res.json();
       if (!data.session_id) throw new Error(data.detail || 'No session_id returned');
       setSessionId(data.session_id);
       addLog(`Session: ${data.session_id}`, 'info');
@@ -186,7 +182,7 @@ export default function App() {
   const stopCrawl = async () => {
     if (!sessionId) return;
     try {
-      await fetch(`${API}/crawl/${sessionId}/stop`, { method: 'POST' });
+      await axios.post(`${API}/crawl/${sessionId}/stop`);
     } catch (e) {
       addLog(`Stop request failed: ${e.message}`, 'error');
     }
@@ -198,8 +194,7 @@ export default function App() {
   const downloadReport = async () => {
     if (!sessionId) return;
     try {
-      const res = await fetch(`${API}/crawl/${sessionId}/report`);
-      const report = await res.json();
+      const { data: report } = await axios.get(`${API}/crawl/${sessionId}/report`);
       const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
